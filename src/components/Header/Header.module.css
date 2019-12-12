@@ -1,0 +1,20 @@
+.header{
+    width: 100%;
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+.header:hover{
+    color: black;
+    background-color: white;
+    font-size: 2em;
+    transition: 0.5s all ease-out;
+}
+.header:not(hover){
+    transition: 0.5s all ease-out;
+}
+a{
+    text-decoration: none;
+}
