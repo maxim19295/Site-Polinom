@@ -3,11 +3,12 @@ import c from './Coordinates.module.css';
 import {NavLink} from 'react-router-dom';
 import Button from './../Button/Button';
 import Point from './Point/Point';
+import PointLabel from './PointLabel/PointLabel';
 const Coordinates =(props)=>{
         return <div id={c.table}>
             <div>
-            <label className={c.pointName}>X</label>
-            <label className={c.pointName}>Y</label>
+            <PointLabel line='X' />
+            <PointLabel line='Y' />
             </div>
             <div>
             <Point line='X' />
