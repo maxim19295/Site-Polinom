@@ -1,6 +1,7 @@
 import React from 'react';
 import m from './Method.module.css';
 import {NavLink} from 'react-router-dom';
+import Button from './../Button/Button';
 const Method =(props)=>{
     let selectedMethod=React.createRef();
     let onChangeMethod=()=>{
@@ -14,7 +15,7 @@ const Method =(props)=>{
         <select ref={selectedMethod} id='method' value={props.needState.method} onChange={onChangeMethod}>
             {Methods}
             </select>
-            <NavLink to='/coords'><button id='next'>Дальше</button></NavLink>
+            <NavLink to='/coords'><Button id='next' text='Дальше'/></NavLink>
     </div>;
 }
 export default Method;

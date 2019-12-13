@@ -1,6 +1,7 @@
 import React from 'react';
 import c from './Coordinates.module.css';
 import {NavLink} from 'react-router-dom';
+import Button from './../Button/Button';
 const Coordinates =(props)=>{
         return <div id={c.table}>
             <div>
@@ -11,8 +12,8 @@ const Coordinates =(props)=>{
             <input type='text' className={c.newPoint} />
             <input type='text' className={c.newPoint} />
             </div>
-            <button id={c.add_point}>Добавить точку</button>
+            <Button id={c.add_point} text='Добавить точку' />
             <br/>
-            <NavLink to='/graphic'><button id='create_graph'>Перейти к построению графика</button></NavLink></div>;
+            <NavLink to='/graphic'><Button id='create_graph' text='Перейти к построению графика' /></NavLink></div>;
     }
 export default Coordinates;
