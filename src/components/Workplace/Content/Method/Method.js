@@ -5,7 +5,7 @@ import Button from './../Button/Button';
 const Method =(props)=>{
     let selectedMethod=React.createRef();
     let onChangeMethod=()=>{
-        props.needFunctions.onChangeMethod(selectedMethod.current.value);
+        props.needFunctions(selectedMethod.current.value);
         if(selectedMethod.current.value===props.needState.methods[0].text) document.querySelector('button[id="next"]').setAttribute('disabled','disabled');
         else document.querySelector('button[id="next"]').removeAttribute('disabled');
     }

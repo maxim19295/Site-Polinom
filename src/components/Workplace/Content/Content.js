@@ -3,11 +3,10 @@ import Method from './Method/Method';
 import Coordinates from './Coordinates/Coordinates';
 import Graphic from './Graphic/Graphic';
 const Content = (props) =>{
-    return <>
-        <Method needState={props.needState} needFunctions={props.needFunctions}/>
-        <Coordinates />
-        <Graphic />
-        {/*Choosing method or entering coordinates or building graphic*/}
-            </>;
+    switch (props.type){
+        case 'method': return <Method needState={props.needState} needFunctions={props.needFunctions.onChangeMethod}/>;
+        case 'coords': return <Coordinates needState={props.needState} needFunctions={props.needFunctions}/>;
+        case 'graphic': return <Graphic />;
+        default: {}}
 }
 export default Content;
