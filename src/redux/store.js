@@ -22,5 +22,23 @@ export let functions = {
         rerenderTree(state);
         console.log(state);
         }
+    },
+    coordsFunctions: {
+        onInputNewCoordinate(coordinate,newValue){
+        if(coordinate==='X')
+            state.coordinates.newX=newValue;
+        else if(coordinate==='Y')
+            state.coordinates.newY=newValue;
+        console.log(state);
+            rerenderTree(state);
+        },
+        saveCoordinates(){
+            let newPoint={x: state.coordinates.newX,
+                         y: state.coordinates.newY};
+            state.coordinates.point.push(newPoint);
+            state.coordinates.newX='';
+            state.coordinates.newY='';
+            rerenderTree(state);
+        }
     }
 };
