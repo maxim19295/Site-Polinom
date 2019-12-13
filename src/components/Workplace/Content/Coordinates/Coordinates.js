@@ -2,6 +2,7 @@ import React from 'react';
 import c from './Coordinates.module.css';
 import {NavLink} from 'react-router-dom';
 import Button from './../Button/Button';
+import Point from './Point/Point';
 const Coordinates =(props)=>{
         return <div id={c.table}>
             <div>
@@ -9,8 +10,8 @@ const Coordinates =(props)=>{
             <label className={c.pointName}>Y</label>
             </div>
             <div>
-            <input type='text' className={c.newPoint} />
-            <input type='text' className={c.newPoint} />
+            <Point line='X' />
+            <Point line='Y' />
             </div>
             <Button id={c.add_point} text='Добавить точку' />
             <br/>
