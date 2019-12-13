@@ -13,3 +13,14 @@ export let state = {
             newY: ''
         }
     };
+export let functions = {
+    methodFunctions: {
+        onChangeMethod(value){
+        if(value==='Ньютона') state.method=value;
+           else if(value==='Лагранжа') state.method=value;
+     else if(value==='(не выбрано)') state.method=value;
+        rerenderTree(state);
+        console.log(state);
+        }
+    }
+};
