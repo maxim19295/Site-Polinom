@@ -104,5 +104,13 @@ export let functions = {
                 }
                     }
         }
+    },
+    generalFunctions:{
+        clearState(){
+            state.method='(не выбрано)';
+            state.coordinates.point=[];
+            state.graphic.graphicPoint=[];
+            rerenderTree(state);
+        }
     }
 };
