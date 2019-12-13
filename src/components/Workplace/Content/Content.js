@@ -4,7 +4,7 @@ import Coordinates from './Coordinates/Coordinates';
 import Graphic from './Graphic/Graphic';
 const Content = (props) =>{
     return <>
-        <Method needState={props.needState}/>
+        <Method needState={props.needState} needFunctions={props.needFunctions}/>
         <Coordinates />
         <Graphic />
         {/*Choosing method or entering coordinates or building graphic*/}
