@@ -6,7 +6,7 @@ const Content = (props) =>{
     switch (props.type){
         case 'method': return <Method needState={props.needState} needFunctions={props.needFunctions.onChangeMethod}/>;
         case 'coords': return <Coordinates needState={props.needState} needFunctions={props.needFunctions}/>;
-        case 'graphic': return <Graphic />;
+        case 'graphic': return <Graphic needState={props.needState} needFunctions={props.needFunctions}/>;
         default: {}}
 }
 export default Content;
