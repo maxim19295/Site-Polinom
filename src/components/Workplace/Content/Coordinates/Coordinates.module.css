@@ -1,0 +1,13 @@
+.newPoint{
+    width: 50px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+#table{
+    margin: 0 auto;
+    background-color: grey; 
+    width: 150px; padding: 20px;
+}
+#add_point{
+    margin: 10px;
+}
