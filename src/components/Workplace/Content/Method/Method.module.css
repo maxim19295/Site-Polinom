@@ -1,0 +1,7 @@
+.method p{
+    font-size: 2.5em;
+    margin: 0;
+}
+.method select, .method button{
+    font-size: 1.5em;
+}
