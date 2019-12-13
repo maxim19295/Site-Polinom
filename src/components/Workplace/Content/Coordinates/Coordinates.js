@@ -4,8 +4,8 @@ import {NavLink} from 'react-router-dom';
 const Coordinates =(props)=>{
         return <div id={c.table}>
             <div>
-            <label>X</label>
-            <label>Y</label>
+            <label className={c.pointName}>X</label>
+            <label className={c.pointName}>Y</label>
             </div>
             <div>
             <input type='text' className={c.newPoint} />
