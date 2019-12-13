@@ -11,6 +11,9 @@ export let state = {
             point: [],
             newX: '',
             newY: ''
+        },
+        graphic: {
+            graphicPoint: []
         }
     };
 export let functions = {
@@ -39,6 +42,11 @@ export let functions = {
             state.coordinates.newX='';
             state.coordinates.newY='';
             rerenderTree(state);
+        }
+    },
+    graphicFunctions: {
+        approximationFunction(){
+            
         }
     }
 };
