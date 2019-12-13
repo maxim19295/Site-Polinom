@@ -45,8 +45,30 @@ export let functions = {
         }
     },
     graphicFunctions: {
-        approximationFunction(){
-            
+        approximationFunction(method,startX,startY,min,max,scaleX,scaleY){
+            if(method==='Лагранжа'){
+                let x,y;
+                for(let n=min; n<max; n++){
+                x=(n-startX)/scaleX;
+                let l=[];
+                for(let i=0;i<state.coordinates.point.length;i++){
+                    l[i]=1;
+                    for(let j=0;j<state.coordinates.point.length;j++){
+                        if(j!=i)
+                            l[i]*=((x-state.coordinates.point[j].x)/(state.coordinates.point[i].x-state.coordinates.point[j].x));
+                    }
+                }
+                let L=0;
+                for(let i=0; i<state.coordinates.point.length;i++){
+                    L+=state.coordinates.point[i].y*l[i];
+                }
+                y=startY-L*scaleY;
+                state.graphic.graphicPoint.push({x: n,y: y});
+                }
+            }
+            else if(method==='Ньютона'){
+                    
+                    }
         }
     }
 };

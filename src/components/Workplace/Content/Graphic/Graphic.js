@@ -66,6 +66,15 @@ class Graphic extends React.Component{
             ctx.fillText(`(${this.props.needState.data[i].x};${this.props.needState.data[i].y})`,(graphic.width/2+this.props.needState.data[i].x*x_interval),(graphic.height/2-this.props.needState.data[i].y*y_interval));
         }
         //выставление введеных точек на СК (конец)
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.strokeStyle=(this.props.needState.method=='Лагранжа') ? 'darkblue' : 'orange';
+        ctx.lineWidth=2;
+        this.props.needFunctions(this.props.needState.method,graphic.width/2,graphic.height/2,0,graphic.width,x_interval,y_interval);
+        for(let i=1; i<this.props.needState.graphic.length;i++){
+            ctx.moveTo(this.props.needState.graphic[i-1].x,this.props.needState.graphic[i-1].y);
+            ctx.lineTo(this.props.needState.graphic[i].x,this.props.needState.graphic[i].y);
+        }
         ctx.stroke();}
     }
     render(){
