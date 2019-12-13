@@ -18,7 +18,7 @@ const Coordinates =(props)=>{
             <Point line='X' needState={props.needState} onEnterNewPoint={props.needFunctions.onInputNewCoordinate}/>
             <Point line='Y' needState={props.needState} onEnterNewPoint={props.needFunctions.onInputNewCoordinate} />
             </div>
-            <Button id={c.add_point} text='Добавить точку'  disabled={disabled_value} />
+            <Button id={c.add_point} text='Добавить точку' needClickFunction={props.needFunctions.saveCoordinates} disabled={disabled_value} />
             <br/>
             <NavLink to='/graphic'><Button id='create_graph' text='Перейти к построению графика'/></NavLink></div>;
     }
