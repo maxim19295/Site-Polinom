@@ -67,7 +67,41 @@ export let functions = {
                 }
             }
             else if(method==='Ньютона'){
+                    let x,y;
+                for(let n=min; n<max; n++){
+                    x=(n-startX)/scaleX;
+                    //конечные разности
+                    let deltaY=[];
+                    let range=state.coordinates.point.length-1;
+                    let numberDifferents=range;
+                    for(let i=0;i<range;i++){
+                        let tempArr = [];
+                        debugger;
+                        for(let j=0;j<numberDifferents;j++){
+                            if(i==0)
+                            tempArr[j]=(state.coordinates.point[j+1].y-state.coordinates.point[j].y)/(state.coordinates.point[j+1].x-state.coordinates.point[j].x);
+                        else
+                            tempArr[j]=(deltaY[i-1][j+1]-deltaY[i-1][j])/(state.coordinates.point[i+j+1].x-state.coordinates.point[j].x);
+                        }
+                        numberDifferents--;
+                        deltaY.push(tempArr);
+                }
+                    let N = parseFloat(state.coordinates.point[0].y);
                     
+                    console.log(deltaY);
+                    let P = [];
+                    for(let i=0;i<range;i++){
+                        P[i]=deltaY[i][0];
+                        for(let j=0;j<i+1;j++){
+                            P[i]*=(x-state.coordinates.point[j].x);
+                        }
+                    }
+                    for(let i=0;i<P.length;i++){
+                        N+=P[i];
+                    }
+                    y=startY-N*scaleY;
+                    state.graphic.graphicPoint.push({x: n,y: y});
+                }
                     }
         }
     }
