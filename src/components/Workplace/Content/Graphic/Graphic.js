@@ -2,14 +2,15 @@ import React from 'react';
 import g from './Graphic.module.css';
 class Graphic extends React.Component{
     componentDidMount(){
-        if(this.props.needState.data.length>0){let graphic=document.querySelector('canvas');
+        if(this.props.data.length>0){
+        let graphic=document.querySelector('canvas');
         //максимальное число по модулю из массива координат (начало)
-        let max_abs_x = Math.abs(this.props.needState.data[0].x);
-        for(let i=0;i<this.props.needState.data.length;i++)
-            if(max_abs_x<Math.abs(this.props.needState.data[i].x)) max_abs_x=Math.abs(this.props.needState.data[i].x);
-        let max_abs_y = Math.abs(this.props.needState.data[0].y);
-        for(let i=0;i<this.props.needState.data.length;i++)
-            if(max_abs_y<Math.abs(this.props.needState.data[i].y)) max_abs_y=Math.abs(this.props.needState.data[i].y);
+        let max_abs_x = Math.abs(this.props.data[0].x);
+        for(let i=0;i<this.props.data.length;i++)
+            if(max_abs_x<Math.abs(this.props.data[i].x)) max_abs_x=Math.abs(this.props.data[i].x);
+        let max_abs_y = Math.abs(this.props.data[0].y);
+        for(let i=0;i<this.props.data.length;i++)
+            if(max_abs_y<Math.abs(this.props.data[i].y)) max_abs_y=Math.abs(this.props.data[i].y);
         let just_max=(max_abs_x>max_abs_y) ? max_abs_x : max_abs_y;
         let x_interval=graphic.width/(2*just_max);
         let y_interval=graphic.height/(2*just_max);
@@ -55,27 +56,27 @@ class Graphic extends React.Component{
         ctx.fillText(`${just_max}`,graphic.width/2-20,15);
         // выставление макимумов и минимумов по краям осей координат(конец)
         //выставление введенных точек на СК (начало)
-        for(let i=0;i<this.props.needState.data.length;i++){
+        for(let i=0;i<this.props.data.length;i++){
             ctx.beginPath();
             ctx.fillStyle='red';
-            ctx.arc((graphic.width/2+this.props.needState.data[i].x*x_interval),(graphic.height/2-this.props.needState.data[i].y*y_interval),3,0,Math.PI*2,true);
+            ctx.arc((graphic.width/2+this.props.data[i].x*x_interval),(graphic.height/2-this.props.data[i].y*y_interval),3,0,Math.PI*2,true);
             ctx.fill();
             ctx.beginPath();
             ctx.fillStyle='black';
             ctx.font='9pt serif';
-            ctx.fillText(`(${this.props.needState.data[i].x};${this.props.needState.data[i].y})`,(graphic.width/2+this.props.needState.data[i].x*x_interval),(graphic.height/2-this.props.needState.data[i].y*y_interval));
+            ctx.fillText(`(${this.props.data[i].x};${this.props.data[i].y})`,(graphic.width/2+this.props.data[i].x*x_interval),(graphic.height/2-this.props.data[i].y*y_interval));
         }
         //выставление введеных точек на СК (конец)
         ctx.stroke();
         ctx.beginPath();
-        ctx.strokeStyle=(this.props.needState.method=='Лагранжа') ? 'darkblue' : 'orange';
+        ctx.strokeStyle=(this.props.currentMethod=='Лагранжа') ? 'darkblue' : 'orange';
         ctx.lineWidth=2;
-        this.props.needFunctions(this.props.needState.method,graphic.width/2,graphic.height/2,0,graphic.width,x_interval,y_interval);
-        for(let i=1; i<this.props.needState.graphic.length;i++){
-            ctx.moveTo(this.props.needState.graphic[i-1].x,this.props.needState.graphic[i-1].y);
-            ctx.lineTo(this.props.needState.graphic[i].x,this.props.needState.graphic[i].y);
+        this.props.buildGraphic(this.props.currentMethod,graphic.width/2,graphic.height/2,0,graphic.width,x_interval,y_interval,this.props.data);
+        for(let i=1; i<this.props.graphic.graphic.length;i++){
+            ctx.moveTo(this.props.graphic.graphic[i-1].x,this.props.graphic.graphic[i-1].y);
+            ctx.lineTo(this.props.graphic.graphic[i].x,this.props.graphic.graphic[i].y);
         }
-        ctx.stroke();}
+    ctx.stroke();}
     }
     render(){
         return <canvas id={g.graph} height='600' width='600'>

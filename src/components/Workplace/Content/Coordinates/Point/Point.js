@@ -6,17 +6,17 @@ const Point = (props) =>{
     let newPointCoordinate=React.createRef();
     if(props.line==='X')
         {classPoint=' pointX';
-         if(props.needState.newX!==0){valuePoint=props.needState.newX;}
+         if(props.newPoint.newX!==''){valuePoint=props.newPoint.newX;}
          else valuePoint='';
         }
     else if(props.line==='Y')
         {classPoint=' pointY';
-        if(props.needState.newY!==0){valuePoint=props.needState.newY;}
+        if(props.newPoint.newY!==0){valuePoint=props.newPoint.newY;}
          else valuePoint='';
         }
     let onChangeNewPoint=()=>{
-    props.onEnterNewPoint(props.line,newPointCoordinate.current.value);
-    if((props.needState.newX==='')||(props.needState.newY===''))
+    props.inputNewCoord(newPointCoordinate.current.value,props.line);
+    if((props.newPoint.newX==='')||(props.newPoint.newY===''))
         document.querySelector('#'+c.add_point).setAttribute('disabled','disabled');
     else document.querySelector('#'+c.add_point).removeAttribute('disabled');
     }

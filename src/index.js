@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {state, functions} from './redux/store.js';
-import {subscribe} from './redux/store.js';
+import {Provider} from 'react-redux';
+import store from './redux/redux-store.js';
 
-let rerenderTree=(state)=>{return ReactDOM.render(<App state={state} functions={functions}/>, document.getElementById('root'));}
-rerenderTree(state);
-subscribe(()=>{rerenderTree(state)});
+let rerenderTree=(store)=>{
+    return ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));}
+rerenderTree(store);
+store.subscribe(()=>{rerenderTree(store)});

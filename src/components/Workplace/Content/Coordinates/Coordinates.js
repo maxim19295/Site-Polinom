@@ -5,9 +5,9 @@ import Button from './../Button/Button';
 import Point from './Point/Point';
 import PointLabel from './PointLabel/PointLabel';
 const Coordinates =(props)=>{
-    let Points = props.needState.point.map(point=><><PointLabel line={point.x} /><PointLabel line={point.y} /></>);
+    let Points = props.coordinates.point.map(point=><><PointLabel line={point.x} /><PointLabel line={point.y} /></>);
     let disabled_value;
-    if((props.needState.newX==='')||(props.needState.newY===''))
+    if((props.coordinates.newPoint.newX==='')||(props.coordinates.newPoint.newY===''))
         disabled_value='disabled';
     else disabled_value=null;
         return <div id={c.table}>
@@ -19,10 +19,10 @@ const Coordinates =(props)=>{
                 {Points}
             </div>
             <div>
-            <Point id='newXfield' line='X' needState={props.needState} onEnterNewPoint={props.needFunctions.onInputNewCoordinate}/>
-            <Point id='newYfield' line='Y' needState={props.needState} onEnterNewPoint={props.needFunctions.onInputNewCoordinate} />
+            <Point id='newXfield' line='X' newPoint={props.coordinates.newPoint} inputNewCoord={props.inputNewCoord}/>
+            <Point id='newYfield' line='Y' newPoint={props.coordinates.newPoint} inputNewCoord={props.inputNewCoord}/>
             </div>
-            <Button id={c.add_point} text='Добавить точку' needClickFunction={props.needFunctions.saveCoordinates} disabled={disabled_value} />
+            <Button id={c.add_point} text='Добавить точку' needClickFunction={props.saveCoords} disabled={disabled_value} />
             <br/>
             <NavLink to='/graphic'><Button id='create_graph' text='Перейти к построению графика'/></NavLink></div>;
     }

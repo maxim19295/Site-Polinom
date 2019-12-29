@@ -5,7 +5,7 @@ import w from './Workplace.module.css';
 const Workplace = (props) => {
     return <div className={w.place}>
             <WP_Header type_header={props.type_header}/>
-            <Content type={props.type} needState={props.needState} needFunctions={props.needFunctions}/>
+            <Content type={props.type}/>
             </div>;
 }
 export default Workplace;
