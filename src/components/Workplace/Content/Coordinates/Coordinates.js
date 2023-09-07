@@ -24,6 +24,6 @@ const Coordinates =(props)=>{
             </div>
             <Button id={c.add_point} text='Добавить точку' needClickFunction={props.saveCoords} disabled={disabled_value} />
             <br/>
-            <NavLink to='/graphic'><Button id='create_graph' text='Перейти к построению графика'/></NavLink></div>;
+            <Button id='create_graph' text='Перейти к построению графика' needClickFunction={()=>{props.changeStep()}}/></div>;
     }
 export default Coordinates;

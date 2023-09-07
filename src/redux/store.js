@@ -5,6 +5,7 @@ export let subscribe = (observer) =>{
         rerenderTree=observer;
     };
 export let state = {
+        number_step: 1,
         methods: [{type: 'none', text: '(не выбрано)'},{type: 'newton', text: 'Ньютона'},{type: 'Lagrangh', text: 'Лагранжа'}],
         method: '(не выбрано)',
         coordinates: {

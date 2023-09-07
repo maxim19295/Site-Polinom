@@ -15,7 +15,7 @@ const Method =(props)=>{
         <select ref={selectedMethod} id='method' value={props.state.method} onChange={onChangeMethod}>
             {Methods}
             </select>
-            <NavLink to='/coords'><Button id='next' text='Дальше'/></NavLink>
+            <button id='next' onClick={()=>{props.changeStep()}}>Дальше</button>
     </div>;
 }
 export default Method;
